@@ -102,15 +102,19 @@
                   <div className="body"
                        dangerouslySetInnerHTML="${{ __html: marked(body).replace(/<pre>/g, '<pre class="prettyprint">')}}"
                   />
-		  <div className="author">
-		    <p><span style="text-transform:capitalize">Written by</span> ${user.name}</p>
-		    <p><small>${user.bio}</small></p>
-		  </div>
                 </div>
               `)}
           </div>
         `
-      }
+      };
+
+      const Author = (props) => {
+        return html`<div class="author">
+	    <p><span style="text-transform:capitalize">Written by</span> ${user.name}</p>
+	    <p><small>${user.bio}</small></p>
+	  </div>
+	`
+      };
 
       const Footer = (props) => {
         return html`<footer>
