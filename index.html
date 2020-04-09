@@ -52,7 +52,9 @@
               const res = await fetch(url, options);
               setIssues(await res.json());
             }
-          }();
+          };
+
+	  fetchIssues()
 
         }, [issues]);
 
