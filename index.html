@@ -5,18 +5,27 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" type="text/css" href="css/structure.css">
-    <link rel="stylesheet" type="text/css" href="css/typography.css">
+    <link rel="stylesheet" type="text/css" href="./css/structure.css">
+    <link rel="stylesheet" type="text/css" href="./css/typography.css">
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=PT+Serif">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+    <link rel="manifest" href="./site.webmanifest">
 
-    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
-    <script type="module" src='app.js'></script>
   </head>
   <body>
+    <header class="header">
+      <h1 class="title"><a href="index.html"><strong>DevOps RoundTable</strong></a></h1>
+      <h2 class="description">Discussions on agile development and devops leadership.</h2>
+    </header>
     <main id="app" />
+    <footer>
+      <p><small>Copyright &copy; 2020, Dwight Spencer. All Rights Reserved. 
+        Distribution permitted via BSD modified 2-claus licence.</small>
+      </p>
+      <script type="module" src='./app.js' async></script>
+      <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js" async></script>
+    </footer>
   </body>
 </html>

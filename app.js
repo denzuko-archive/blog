@@ -11,31 +11,20 @@ const settings = {
   authkey: '918ff8ac8cd56019b6ab111626c71d62f60814c6'
 }
 
-const Header = (props) => {
-  return html`
-    <header className="header">
-      <h1 className="title">
-        <a href="index.html"><strong>DevOps RoundTable</strong></a>
-      </h1>
-      <h2 className="description">
-        Discussions on agile development and devops leadership.
-      </h2>
-    </header>
-  `;
-}
-
 const Posts = (props) => {
   const [issues, setIssues] = React.useState();
 
   React.useEffect(() => {
 
     async function fetchIssues() {
+
       if (!issues) {
         const { url, ...options } = endpoint("GET /repos/:owner/:repo/issues", {
+          auth: settings.authkey,
           owner: settings.username,
-          repo: settings.repository,
-          auth: settings.authkey
+          repo: settings.repository
         });
+
         const res = await fetch(url, options);
         setIssues(await res.json());
       }
@@ -49,25 +38,14 @@ const Posts = (props) => {
     search,
   } = window.location;
 
-  return html`
-    <div className="posts">
+  return html`<div className="posts">
       ${(issues || [])
         .filter(({ user })   => user.login === settings.username)
         .filter(({ number }) => !search || Number(search.slice(1)) === number)
-        .map(({
-          number,
-          title,
-          labels,
-          user,
-          created_at,
-          comments,
-          body,
-        }) => html`
+        .map(({ number, title, labels, user, created_at, comments, body }) => html`
           <div className="post" id={${number}} key={${number}}>
             <h1 className="title">
-              <a href="?${number}">
-                ${title}
-              </a>
+              <a href="?${number}">${title}</a>
             </h1>
             ${labels.length > 0 && html`
               <div className="categories">
@@ -91,26 +69,10 @@ const Posts = (props) => {
             />
           </div>
           <div class="author">
-            <p><span style="text-transform:capitalize">Written by</span> ${user.name}</p>
-            <p><small>${user.bio}</small></p>
+            <p><span style=${{text-transform: 'capitalize' }}>Written by</span> ${user.name}</p><p><small>${user.bio}</small></p>
           </div>
         `)}
-    </div>
-  `
+    </div>`
 };
 
-const Footer = (props) => {
-  return html`<footer>
-          <p><small>Copyright &copy; 2020, Dwight Spencer. All Rights Reserved. Distribution permitted via BSD modified 2-claus licence.</small></p>
-        </footer>`
-};
-
-ReactDOM.render(
-  html`
-    <${Header} />
-    <${Posts} />
-    <${Footer} />
-  `,
-  document.querySelector('#app')
-)
-
+ReactDOM.render(html`<${Posts} />`, document.querySelector('#app'))
