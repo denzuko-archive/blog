@@ -90,15 +90,11 @@ const Posts = (props) => {
                  dangerouslySetInnerHTML="${{ __html: marked(body).replace(/<pre>/g, '<pre class="prettyprint">')}}"
             />
           </div>
+          <div class="author">
+            <p><span style="text-transform:capitalize">Written by</span> ${user.name}</p>
+            <p><small>${user.bio}</small></p>
+          </div>
         `)}
-    </div>
-  `
-};
-
-const Author = (props) => {
-  return html`<div class="author">
-      <p><span style="text-transform:capitalize">Written by</span> ${user.name}</p>
-      <p><small>${user.bio}</small></p>
     </div>
   `
 };
