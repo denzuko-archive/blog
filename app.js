@@ -69,7 +69,7 @@ const Posts = (props) => {
             />
           </div>
           <div class="author">
-            <p><span style=${{text-transform: 'capitalize' }}>Written by</span> ${user.name}</p><p><small>${user.bio}</small></p>
+            <p><span class='allCaps'>Written by</span> ${user.name}</p><p><small>${user.bio}</small></p>
           </div>
         `)}
     </div>`
