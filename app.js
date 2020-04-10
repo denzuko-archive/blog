@@ -68,11 +68,13 @@ const Posts = (props) => {
                  dangerouslySetInnerHTML="${{ __html: marked(body).replace(/<pre>/g, '<pre class="prettyprint">')}}"
             />
           </div>
-          <div class="author">
-            <p><span class='allCaps'>Written by</span> ${user.name}</p><p><small>${user.bio}</small></p>
+          <div className="author">
+            <p><span className='allCaps'>Written by</span> ${user.name}</p><p><small>${user.bio}</small></p>
           </div>
         `)}
     </div>`
 };
 
-ReactDOM.render(html`<${Posts} />`, document.querySelector('#app'))
+ReactDOM.render(html`
+  <${Posts} />
+  `, document.querySelector('#app'))
