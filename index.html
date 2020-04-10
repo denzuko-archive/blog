@@ -3,6 +3,8 @@
   <head>
     <title>DevOps Roundtable</title>
 
+    <meta charset="utf-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" type="text/css" href="./css/structure.css">
@@ -12,6 +14,47 @@
     <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
     <link rel="manifest" href="./site.webmanifest">
+    
+    <link rel="manifest" href="manifest.json">
+
+    <meta name="theme-color" content="#ebd5a0">
+
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Devops Roundtable">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="My App">
+
+
+    <!-- Tile icon for Windows 8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="images/manifest/icon-144x144.png">
+    <meta name="msapplication-TileColor" content="#3f51b5">
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <!-- Default twitter cards -->
+    <meta name="twitter:card" content="Discussions on agile development and devops leadership.">
+    <meta name="twitter:site" content="@denzuko">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="DevOps Roundtable">
+    <meta property="og:image" content="images/manifest/icon-144x144.png" />
+
+    <!-- Performance tip: hint to the browser to start the handshake for the fonts site -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <script>
+      // Load and register pre-caching Service Worker
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register('service-worker.js', {
+            scope: '/',
+          });
+        });
+      }
+
+      // Redux assumes `process.env.NODE_ENV` exists in the ES module build.
+      // https://github.com/reactjs/redux/issues/2907
+      window.process = { env: { NODE_ENV: 'production' } };
+    </script>
 
   </head>
   <body>
@@ -20,6 +63,9 @@
       <h2 class="description">Discussions on agile development and devops leadership.</h2>
     </header>
     <main id="app" />
+    <noscript>
+      Please enable JavaScript to view this website.
+    </noscript>
     <footer>
       <p><small>Copyright &copy; 2020, Dwight Spencer. All Rights Reserved. 
         Distribution permitted via BSD modified 2-claus licence.</small>
