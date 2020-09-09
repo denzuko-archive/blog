@@ -51,6 +51,12 @@ pre>code {
 .post {
   margin-bottom: 40px;
 }
+.post>.banner {
+	
+}
+.post>img {
+  max-width: 600px;
+}
 
 .post>.title {
   display: inline-block;
